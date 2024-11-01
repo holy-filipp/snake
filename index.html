@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body {
+            background-color: #2C3333;
+        }
+        .container {
+            width: 804px;
+            height: 844px;
+            display: grid;
+            grid-template-columns: auto;
+            grid-template-rows: 40px 800px;
+            border: 2px solid #A5C9CA;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .score-div {
+            background-color: #A5C9CA;
+            text-align: center;
+            position: relative;
+        }
+        #score {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px;
+            line-height: 0px;
+            display: inline-block;
+        }
+        #canvas {
+            margin-left: 2px;
+            margin-right: 2px;
+            margin-bottom: 2px;
+            z-index: 2;
+        }
+        #settings-button {
+            font-size: 32px;
+            background-color: transparent;
+            background-repeat: no-repeat;
+            border: none;
+            cursor: pointer;
+            overflow: hidden;
+            outline: none;
+            position: absolute;
+            right: 2px;
+            top: 1px;
+        }
+        #settings-container {
+            background-color: #A5C9CA;
+            width: 500px;
+            height: 500px;
+            padding: 10px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            visibility: hidden;
+        }
+        label {
+            font-family: 'Montserrat', sans-serif;
+        }
+        input {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="score-div">
+            <p id="score">Score: 0</p>
+            <button id="settings-button"><i class="fa fa-gear"></i></button>
+        </div>
+        <canvas id="canvas" width="800" height="800"></canvas>
+    </div>
+    <div id="settings-container">
+        <form id="settings-form">
+            <label for="fieldw">Width of field in cells:</label><br>
+            <input id="fieldw" type="range" name="fieldw" min="10" max="50" oninput="document.getElementById('fieldwvalue').innerHTML = this.value">
+            <label for="fieldw" id="fieldwvalue">0</label><br>
+            <label for="fieldh">Height of field in cells:</label><br>
+            <input id="fieldh" type="range" name="fieldh" min="10" max="50" oninput="document.getElementById('fieldhvalue').innerHTML = this.value">
+            <label for="fieldh" id="fieldhvalue">0</label><br>
+            <input id="borders" type="checkbox" name="borders">
+            <label for="borders">Are borders kill snake?</label><br><br>
+            <input type="submit" value="Save and close">
+        </form>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>
